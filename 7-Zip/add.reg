@@ -1,0 +1,31 @@
+Windows Registry Editor Version 5.00
+
+; The script assumes 7-Zip is installed in C:\Program Files\7-Zip. Change destination if the application is installed in a different path, or if you want to use the script for 7-Zip Portable.
+; 本脚本假设 7-Zip 已安装到 C:\Program Files\7-Zip 中。若安装在其他文件夹，或使用可移动版的 7-Zip，则将以下路径变更到 7-Zip 的安装路径中。
+; The following language address (MUIVerb) is for the Windows 11 23H2 version. For other versions, please check HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell.
+; 以下语言地址 (MUIVerb) 使用的是 Windows 11 23H2 版本的语言地址。其他版本请前去 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell 查询。
+
+[-HKEY_CURRENT_USER\SOFTWARE\Classes\*\shell\Windows.CompressTo]
+[-HKEY_CURRENT_USER\SOFTWARE\Classes\Directory\shell\Windows.CompressTo]
+[-HKEY_CURRENT_USER\SOFTWARE\Classes\*\shell\Extract]
+[-HKEY_CURRENT_USER\SOFTWARE\Classes\Directory\shell\Extract]
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\*\shell\Windows.CompressTo]
+"MUIVerb"="@Windows.UI.FileExplorer.dll,-51797"
+[HKEY_CURRENT_USER\SOFTWARE\Classes\*\shell\Windows.CompressTo\command]
+@="\"C:\\Program Files\\7-Zip\\7zG.exe\" \"a\" \"-ad\" \"-saa\" \"%1\""
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Directory\shell\Windows.CompressTo]
+"MUIVerb"="@Windows.UI.FileExplorer.dll,-51797"
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Directory\shell\Windows.CompressTo\command]
+@="\"C:\\Program Files\\7-Zip\\7zG.exe\" \"a\" \"-ad\" \"-saa\" \"%1\""
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\*\shell\Extract]
+"MUIVerb"="@shell32.dll,-37516"
+[HKEY_CURRENT_USER\SOFTWARE\Classes\*\shell\Extract\command]
+@="\"C:\\Program Files\\7-Zip\\7zG.exe\" \"x\" \"-o%1\" \"-ad\" \"%1\""
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Directory\shell\Extract]
+"MUIVerb"="@shell32.dll,-37516"
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Directory\shell\Extract\command]
+@="\"C:\\Program Files\\7-Zip\\7zG.exe\" \"x\" \"-o%1\" \"-ad\" \"%1\""
