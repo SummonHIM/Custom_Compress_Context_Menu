@@ -1,6 +1,8 @@
 # Windows 11 Custom Compress Context Menu
 
-自定义 Windows 11 解压缩右键菜单
+Replace Windows 11 context menu compress command.
+
+替换 Windows 11 右键菜单解压缩命令。
 
 Support/支持：PeaZip, 7-Zip
 
